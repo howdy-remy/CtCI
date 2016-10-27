@@ -31,3 +31,12 @@ function checkPermutation(stringA, stringB, caseSensitive = false){
 	}
 	return true;
 }
+
+//1.3 URLify (string) => string
+function URLify(string){
+	return string.trim().split(' ').join('%20');
+}
+
+console.log(URLify('Mr John Smith    '))
+console.log(URLify('Mr John Smith'))
+console.log(URLify('Hello World'))
