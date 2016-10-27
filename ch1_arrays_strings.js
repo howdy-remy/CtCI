@@ -33,10 +33,26 @@ function checkPermutation(stringA, stringB, caseSensitive = false){
 }
 
 //1.3 URLify (string) => string
-function URLify(string){
+function urlify(string){
 	return string.trim().split(' ').join('%20');
 }
 
-console.log(URLify('Mr John Smith    '))
-console.log(URLify('Mr John Smith'))
-console.log(URLify('Hello World'))
+//1.4 Palindrome Permutation (string) => boolean
+function palindrome(string){
+	string = string.toLowerCase().replace(/\s/,'');
+
+	let obj = {};
+	let odd = false;
+
+	for(let i = 0; i < string.length; i++){
+		if(!obj[string[i]]) { obj[string[i]] = 1 }
+		else { obj[string[i]]++ }
+	}
+
+	for(let key in obj){
+		if(obj[key] % 2 !== 0 && odd === true ) return false;
+		else if (obj[key] % 2 !== 0) odd = true;
+	}
+
+	return true;
+}
